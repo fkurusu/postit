@@ -1,0 +1,9 @@
+<p>
+    <%= render @post.categories %>
+</p>
+
+<%= render 'shared/title', title: @post.title.capitalize %>
+
+<p>
+    <%= @post.description %>
+</p>

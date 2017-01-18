@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="span8 well">
+      <%= render post.categories %>
+      <h4><%= link_to post.title, post %></h4>
+      <p><%= post.description %></p>
+      <p><%= link_to 'Real post', fix_url(post.url) %></p>
+      <p>
+          <span class="quiet">posted by <%= link_to post.creator.name, '#' %></span>
+          <small><%= display_datetime(post.created_at) %></small>
+      </p>
+
+      <span>
+          <%= link_to("#{post.comments.size} comments", post) %>
+      </span>
+  </div>
+</div>

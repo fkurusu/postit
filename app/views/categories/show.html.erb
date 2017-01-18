@@ -1,0 +1,4 @@
+<% heading = "#{link_to('All posts', posts_path)} &raquo; #{@category.name}".html_safe %>
+<%= render 'shared/title', title: heading %>
+
+<%= render @category.posts %>

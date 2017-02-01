@@ -1,5 +1,11 @@
+<% show_post ||= false %>
+
 <div class="well span8">
-  <em><%= comment.body %></em> <br/> 
-  <span class="quiet">by <%= link_to comment.creator.name, '#' %></span>
+  <em><%= comment.body %></em>
+  <% if show_post %>
+    on <%= link_to comment.post.title, comment.post %>
+  <% end %>
+  <br/> 
+  <span class="quiet">by <%= link_to comment.creator.name, comment.creator %></span>
   <small><%= display_datetime(comment.created_at) %></small>
 </div>

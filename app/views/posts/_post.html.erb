@@ -5,7 +5,9 @@
       <p><%= post.description %></p>
       <p><%= link_to 'Real post', fix_url(post.url) %></p>
       <p>
-          <span class="quiet">posted by <%= link_to post.creator.name, '#' %></span>
+        <span class="quiet">
+          posted by <%= link_to post.creator.name, post.creator %>
+        </span>
           <small><%= display_datetime(post.created_at) %></small>
       </p>
 

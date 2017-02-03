@@ -1,11 +1,28 @@
-<% show_post ||= false %>
 
-<div class="well span8">
-  <em><%= comment.body %></em>
-  <% if show_post %>
-    on <%= link_to comment.post.title, comment.post %>
-  <% end %>
-  <br/> 
-  <span class="quiet">by <%= link_to comment.creator.name, comment.creator %></span>
-  <small><%= display_datetime(comment.created_at) %></small>
+<div class="row">
+  <% show_post ||= false %>
+
+  <div class="span0 well text-center">
+    <% up_votes = comment.up_votes %>
+    <%= "#{up_votes} #{'vote'.pluralize(up_votes)}" %>
+    <%= link_to vote_post_comment_path(comment.post, comment, vote: true), method: :post do %>
+      <i class="icon-arrow-up"></i>
+    <% end %>
+    <br/>
+    <% down_votes = comment.down_votes %>
+    <%= "#{down_votes} #{'vote'.pluralize(down_votes)}" %>
+    <%= link_to vote_post_comment_path(comment.post, comment, vote: false), method: :post do %>
+      <i class="icon-arrow-down"></i>
+    <% end %>
+  </div>
+
+  <div class="well span8">
+    <em><%= comment.body %></em>
+    <% if show_post %>
+      on <%= link_to comment.post.title, comment.post %>
+    <% end %>
+    <br/> 
+    <span class="quiet">by <%= link_to comment.creator.name, comment.creator %></span>
+    <small><%= display_datetime(comment.created_at) %></small>
+  </div>
 </div>

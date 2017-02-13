@@ -1,0 +1,19 @@
+<% if @vote.valid? %>
+  <% up_votes = @comment.up_votes %>
+  $("#comment_<%= @comment.id %>_votes_up").html("<%= up_votes %> <%= 'vote'.pluralize(up_votes) %>")
+
+  <% down_votes = @comment.down_votes %>
+  $("#comment_<%= @comment.id %>_votes_down").html("<%= down_votes %> <%= 'vote'.pluralize(down_votes) %>")
+<% else %>
+  $(".vote_<%= @comment.id %>_error").html("Already counted").css(
+      {
+        "background-color" : "#f2dede",
+        "border-color" : "#eed3d7",
+        "border-radius" : "10px",
+        "color" : "#b94a48",
+        "margin" : "5px",
+        "padding" : "5px"
+      }
+    ).after("<br/>")
+    $(".vote_<%= @comment.id %>_error").fadeTo(3000, 0)
+<% end %>

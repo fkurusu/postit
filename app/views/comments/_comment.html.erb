@@ -3,7 +3,7 @@
   <% show_post ||= false %>
 
   <div class="span2 well text-center">
-    <span class="vote_<%= comment.id %>_error"></span>
+    <div id="vote_<%= comment.id %>_error"></div>
     <% up_votes = comment.up_votes %>
     <span id="comment_<%= comment.id %>_votes_up">
       <%= "#{up_votes} #{'vote'.pluralize(up_votes)}" %>

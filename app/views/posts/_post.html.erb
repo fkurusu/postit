@@ -1,9 +1,9 @@
 <div class="row">
 
   <div class="span2 well text-center">
-    <span class="vote_<%= post.id %>_error"></span>
+    <div id="vote_<%= post.slug %>_error"></div>
     <% up_votes = post.up_votes %>
-    <span id="post_<%= post.id %>_votes_up"> 
+    <span id="post_<%= post.slug %>_votes_up"> 
       <%= "#{up_votes} #{'vote'.pluralize(up_votes)}" %>
     </span>
     <% if logged_in? %>
@@ -13,7 +13,7 @@
     <% end %>
     <br/>
     <% down_votes = post.down_votes %>
-    <span id="post_<%= post.id %>_votes_down"> 
+    <span id="post_<%= post.slug %>_votes_down"> 
       <%= "#{down_votes} #{'vote'.pluralize(down_votes)}" %>
     </span>
     <% if logged_in? %>

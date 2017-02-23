@@ -30,4 +30,4 @@
 <% end %>
 
 <h5>Comments (<%= @post.comments.size %>):</h5>
-<%= render @post.comments %>
+<%= render @post.reload.comments %>

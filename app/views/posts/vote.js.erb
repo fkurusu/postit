@@ -1,23 +1,23 @@
 <% if @vote.valid? %>
   <% up_votes = @post.up_votes %>
-  $("#post_<%= @post.id %>_votes_up").html("<%= up_votes %> <%= 'vote'.pluralize(up_votes)%>")
+  $("#post_<%= @post.slug %>_votes_up").html("<%= up_votes %> <%= 'vote'.pluralize(up_votes)%>")
 
   <% down_votes = @post.down_votes %>
-  $("#post_<%= @post.id %>_votes_down").html("<%= down_votes %> <%= 'vote'.pluralize(down_votes)%>")
+  $("#post_<%= @post.slug %>_votes_down").html("<%= down_votes %> <%= 'vote'.pluralize(down_votes)%>")
 <% else %>
-  $(".vote_<%= @post.id %>_error").html("Already counted.")
+  $("#vote_<%= @post.slug %>_error").html("Already counted.")
     .css(
       {
         "background-color" : "#f2dede",
         "border-color" : "#eed3d7",
         "border-radius" : "10px",
         "color" : "#b94a48",
-        "margin" : "5px",
-        "padding" : "5px"
+        "margin" : "1px",
+        "padding" : "2px"
       }
     )
-    .after("<br/>")
-    $(".vote_<%= @post.id %>_error").fadeTo(3000, 0)
-    // $(".vote_<%= @post.id %>_error").delay(4000).remove()
-    // setTimeout("$('.vote_<%= @post.id %>_error').remove", 2000)
+    $("#vote_<%= @post.slug %>_error").fadeTo(3000, 0)
+    setTimeout(function(){
+      $('#vote_<%= @post.slug %>_error').remove();
+    }, 3000);
 <% end %>
